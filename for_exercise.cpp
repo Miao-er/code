@@ -2,11 +2,26 @@
 using namespace std;
 int main()
 {
-    int n = 9, m = 0;
-
-    for (int i = 1; i <= n; i++)
-        for (int j = 2 * i; j <= n; j++)
-            m = m + 1;
-    cout << m;
-    return 0;
+    int n;
+    cout<<"输入n:";
+    cin>>n;
+    int* a=new int[n];
+    int cnt=0;
+    int item;
+    cout<<"输入item:";
+    cin>>item;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        if(a[i]==item)
+            cnt++;
+        else
+        {
+            a[i-cnt]=a[i];
+        }
+    }
+    cout<<"重复元素个数："<<cnt<<endl;
+    cout<<"输出数组：\n";
+    for(int i=0;i<n;i++)
+        cout<<a[i]<<" ";
 }
