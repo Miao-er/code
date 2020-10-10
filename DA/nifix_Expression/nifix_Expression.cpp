@@ -24,6 +24,7 @@ int cacu(int n1,int n2,char ch)
         case '*':return n2*n1;break;
         case '/':return n2/n1;break;
     }
+    return 0;
 }
 int fun(char* a)
 {
@@ -37,11 +38,11 @@ int fun(char* a)
             case '-':
             case '*':
             case '/':
-                if(oper.empty()||level(a[0])>level(oper.top()))
+                if(oper.empty()||level(a[0])>level(oper.top()))//优先级高于栈顶元素则先压入栈中
                     oper.push(a[0]);
                 else 
                 {
-                    while(!oper.empty()&&level(oper.top())>=level(a[0]))
+                    while(!oper.empty()&&level(oper.top())>=level(a[0]))//当前操作符优先级不高于栈顶元素，则栈内元素可以计算
                     {
                         char ch=oper.top();
                         oper.pop();
@@ -56,10 +57,10 @@ int fun(char* a)
                 a=a+1;
                 break;
             case '(':
-                oper.push(a[0]);
+                oper.push(a[0]);//左括号直接压入
                 a=a+1;
                 break;
-            case ')':
+            case ')'://右括号匹配左括号，之间所有操作符可以直接运算
                 while(oper.top()!='(')
                 {
                     char ch=oper.top();
@@ -88,7 +89,7 @@ int fun(char* a)
                 num.push(n);
         }
     }
-    while(!oper.empty())
+    while(!oper.empty())//字符串读取完毕后需要将栈内剩下的操作符运算完成
     {
         char ch=oper.top();
         oper.pop();
