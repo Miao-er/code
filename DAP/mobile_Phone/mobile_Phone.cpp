@@ -1,3 +1,4 @@
+//树状数组
 #include<iostream>
 using namespace std;
 int c[1025][1025];
