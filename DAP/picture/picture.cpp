@@ -62,7 +62,6 @@ void build_tree(int root,int l,int r)
     build_tree(root<<1,l,mid);
     build_tree(root<<1|1,mid+1,r);
 }
-
 void insert(int root,int l,int r,int down)
 {
     if (tree[root].l>=l&&tree[root].r<=r)
