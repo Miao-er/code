@@ -25,6 +25,7 @@ int main()
             que.pop();
             int num=num1+num2;
             sum+=num;
+            cout<<sum<<endl;
             que.push(num);
         }
         cout<<sum<<endl;
