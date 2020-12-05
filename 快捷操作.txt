@@ -1,0 +1,3 @@
+shift+alt+f 文本对齐
+F2 重命名
+question：为什么结构体内比较函数operator<(const T& v)const{}
